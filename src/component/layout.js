@@ -20,8 +20,17 @@ const useStyles = (theme) => ({
 
 class Calculator extends Component {
     constructor(props) {
-        super(props);
-    }
+		super(props);
+		this.state= {
+			expression: ''
+		}
+	}
+	handlechange=(data)=>{
+		this.setState(data);
+		console.log(data);
+	}
+
+	
     render() {
         const classes = this.props;
         return (<main class="container">
@@ -33,12 +42,14 @@ class Calculator extends Component {
                     defaultValue="0"
                     className={classes.textField}
                     margin="normal"
-                    variant="filled"
+					variant="filled"
+					value = {this.state.expression}
                 />
-                <KeyPad />
+                <KeyPad expr={this.state.expression} changeExpr={this.handlechange}/>
             </div>
         </main>);
-    }
+	}
+	
 }
 
 export default withStyles(useStyles)(Calculator);

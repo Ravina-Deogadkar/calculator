@@ -13,7 +13,8 @@ const useStyles = (theme) => ({
         margin: theme.spacing(1),
     },
     calcbox: {
-        width: "50%",
+		width:"300px",
+		margin:"auto"
     }
 
 });
@@ -27,19 +28,16 @@ class Calculator extends Component {
 	}
 	handlechange=(data)=>{
 		this.setState(data);
-		console.log(data);
 	}
 
-	
     render() {
         const classes = this.props;
-        return (<main class="container">
+        return (<main className="container">
 			<Header/>
-            <div class="calcbox" style={{width:"300px", margin:"auto"}}>
+            <div className="calcbox" style={{width:"300px", margin:"auto"}}>
                 <TextField
                 fullWidth
                     id="filled-txt"
-                    defaultValue="0"
                     className={classes.textField}
                     margin="normal"
 					variant="filled"
